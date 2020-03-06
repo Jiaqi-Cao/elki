@@ -95,6 +95,16 @@ public class ClusterContingencyTable {
    * BCubed measures
    */
   protected BCubed bcubed = null;
+  
+  /**
+   * Kuhn Munkres Wong Accuracy Measures
+   */
+  protected KuhnMunkresWongAccuracy kmwacc = null;
+  
+  /**
+   * Pair Sets Index Measures
+   */
+  protected PairSetsIndex psi = null;
 
   /**
    * Constructor.
@@ -225,6 +235,24 @@ public class ClusterContingencyTable {
    */
   public SetMatchingPurity getSetMatching() {
     return smp != null ? smp : (smp = new SetMatchingPurity(this));
+  }
+
+  /**
+   * The Kuhn Munkres Wong Accuracy measures
+   * 
+   * @return Kuhn Munkres Wong Accuracy measures
+   */
+  public KuhnMunkresWongAccuracy getKMWAccuracy() {
+    return kmwacc != null ? kmwacc : (kmwacc = new KuhnMunkresWongAccuracy(this));
+  }
+  
+  /**
+   * The Pair Sets Index measures
+   * 
+   * @return Pair Sets Index measures
+   */
+  public PairSetsIndex getPairSetsIndex() {
+    return psi != null ? psi : (psi = new PairSetsIndex(this));
   }
 
   /**
