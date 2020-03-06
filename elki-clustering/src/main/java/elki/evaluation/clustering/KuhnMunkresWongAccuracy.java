@@ -68,14 +68,12 @@ public class KuhnMunkresWongAccuracy {
     // run Kuhn Munkres Wong
     KuhnMunkresWong kmw = new KuhnMunkresWong();
     int[] chosen = kmw.run(costs);
-    System.out.println(Arrays.toString(chosen));
     // cost array is negative, so we need to add the negatives
     double correctAssociations = 0;
     for(int i = 0; i < chosen.length; i++) {
-      correctAssociations += -costs[chosen[i]][i];
+      correctAssociations += -costs[i][chosen[i]];
     }
-    
-    accuracy = correctAssociations / table.contingency[collen][rowlen];
+    accuracy = correctAssociations / table.contingency[rowlen][collen];
   }
 
   /**
