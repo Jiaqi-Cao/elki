@@ -259,6 +259,12 @@ public class EvaluateClustering implements Evaluator {
       newGroup("Gini") //
           .addMeasure("Mean", gini.getMean(), 0, 1, false) //
           .addMeasure("Adjusted Mean", agini.getMean(), 0, 1, false);
+      
+      PairSetsIndex psi = contmat.getPairSetsIndex();
+      KuhnMunkresWongAccuracy kmwacc = contmat.getKMWAccuracy();
+      newGroup("Kuhn Munkres Wong based") //
+          .addMeasure("Pair Sets Index", psi.psi, 0, 1, false) //
+          .addMeasure("Accuracy", kmwacc.accuracy, 0, 1, false);
     }
 
     /**
