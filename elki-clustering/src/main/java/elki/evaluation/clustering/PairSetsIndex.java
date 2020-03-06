@@ -20,6 +20,8 @@
  */
 package elki.evaluation.clustering;
 
+import java.util.Arrays;
+
 import elki.utilities.datastructures.KuhnMunkresWong;
 
 import net.jafama.FastMath;
@@ -85,7 +87,7 @@ public class PairSetsIndex {
     // sum up s
     s = 0;
     for(int i = 0; i < chosen.length; i++) {
-      s += -costs[chosen[i]][i];
+      s += -costs[i][chosen[i]];
     }
 
     // calculating e : searching for better sort options
