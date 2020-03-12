@@ -20,18 +20,26 @@
  */
 package elki.evaluation.clustering;
 
-import java.util.Arrays;
-
 import elki.utilities.datastructures.KuhnMunkresWong;
 
 import net.jafama.FastMath;
 
 /**
- * Pair Sets Index as proposed by Mohammad Resaei and Pasi Fränti
- * "Set Matching Measures for External Cluster Validity"
+ * The Pair Sets Index calculates a Index based on the mapping of clusters by
+ * {@link KuhnMunkresWong}. Runtime is O(n³) as proposed by the matching
+ * algorithm.
+ * <p>
+ * Pair Sets Index as proposed in:
+ * <p>
+ * Resaei, Mohammad and Pasi Fränti. <br>
+ * "Set Matching Measures for External Cluster Validity" <br>
+ * IEEE Transactions on Knowledge and Data Engineering 28.8 (2016): 2173-2186
+ * <br>
+ * DOI: 10.1109/TKDE.2016.2551240
  * 
  * @author Robert Gehde
- *
+ * @since x.x
+ * 
  */
 public class PairSetsIndex {
   /**
@@ -54,6 +62,12 @@ public class PairSetsIndex {
    */
   protected double psi = 0;
 
+  /**
+   * 
+   * Constructor.
+   *
+   * @param table ClusterContingencyTable for psi calculation
+   */
   public PairSetsIndex(ClusterContingencyTable table) {
     final int rowlen = table.size1, collen = table.size2;
     if(rowlen == collen && rowlen == 1) {

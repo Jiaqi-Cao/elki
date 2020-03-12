@@ -20,13 +20,12 @@
  */
 package elki.evaluation.clustering;
 
-import java.util.Arrays;
-
 import elki.utilities.datastructures.KuhnMunkresWong;
 
 /**
- * A cluster evaluation for accuracy using KuhnMunkresWong algorithm for cluster
- * matching
+ * Calculates the Accuracy of a clustering based on a matching done by
+ * {@link KuhnMunkresWong}. Runtime is O(n³) as proposed by the matching
+ * algorithm.
  * 
  * @author Robert Gehde
  *

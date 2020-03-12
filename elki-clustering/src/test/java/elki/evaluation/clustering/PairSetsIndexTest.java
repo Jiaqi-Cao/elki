@@ -45,7 +45,7 @@ public class PairSetsIndexTest extends AbstractClusterEvaluationTest {
   public void testPairSetsIndexEquals() {
     DBIDRange ids = DBIDUtil.generateStaticDBIDRange(SAMEA.length);
     PairSetsIndex psi = new PairSetsIndex(new ClusterContingencyTable(false, false, makeClustering(ids.iter(), SAMEA), makeClustering(ids.iter(), SAMEB)));
-    
+
     assertEquals("PSI on an equal example should be 1.", 1, psi.psi, 1e-13);
     assertEquals("Simplified PSI on an equal example should be 1.", psi.simplifiedPSI, 1, 1e-13);
   }
@@ -58,9 +58,8 @@ public class PairSetsIndexTest extends AbstractClusterEvaluationTest {
   public void tesPairSetsIndexSKLearn() {
     DBIDRange ids = DBIDUtil.generateStaticDBIDRange(SKLEARNA.length);
     PairSetsIndex psi = new PairSetsIndex(new ClusterContingencyTable(false, false, makeClustering(ids.iter(), SKLEARNA), makeClustering(ids.iter(), SKLEARNB)));
-    
-    assertEquals("PSI value not as expected",.516598639455782, psi.psi, 1e-13);
-    assertEquals("Simplified PSI value not as expected",.502380952380952, psi.simplifiedPSI, 1e-13);
-  }
 
+    assertEquals("PSI value not as expected", .516598639455782, psi.psi, 1e-13);
+    assertEquals("Simplified PSI value not as expected", .502380952380952, psi.simplifiedPSI, 1e-13);
+  }
 }
